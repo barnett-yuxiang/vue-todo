@@ -40,5 +40,6 @@ function addTodo() {
 
     <hr style="margin-top: 40px;" />
     <button @click="router.push('/about')">去关于页面 →</button>
+    <button @click="router.push('/posts')">去文章列表 →</button>
   </div>
 </template>
