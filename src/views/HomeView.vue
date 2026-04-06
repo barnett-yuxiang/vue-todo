@@ -4,12 +4,6 @@ import { useRouter } from 'vue-router'
 import { useTodoStore } from '../stores/todo'
 import TodoItem from '../components/TodoItem.vue'
 
-interface Todo {
-  id: number
-  text: string
-  done: boolean
-}
-
 const router = useRouter()
 const store = useTodoStore()
 
