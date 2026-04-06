@@ -1,8 +1,14 @@
 import { defineStore } from 'pinia'
 import { ref, computed, watch } from 'vue'
 
+interface Todo {
+  id: number
+  text: string
+  done: boolean
+}
+
 // 从 localStorage 读取初始数据
-function loadFromStorage() {
+function loadFromStorage(): Todo[] | null {
   try {
     const raw = localStorage.getItem('vue-todo-list')
     return raw ? JSON.parse(raw) : null
@@ -13,7 +19,7 @@ function loadFromStorage() {
 
 export const useTodoStore = defineStore('todo', () => {
   // 优先用 localStorage 的数据，没有才用默认值
-  const todos = ref(
+  const todos = ref<Todo[]>(
     loadFromStorage() ?? [
       { id: 1, text: '学习 Vue3 响应式', done: false },
       { id: 2, text: '学习 Pinia 状态管理', done: false },
